@@ -1,0 +1,9 @@
+schema: "schema.graphql"
+documents:
+  - query.graphql
+extensions:
+  endpoints:
+    dev:
+      url: ${HASURA_ENDPOINT}
+      headers:
+        x-hasura-access-key: ${HASURA_GRAPHQL_ADMIN_SECRET}

@@ -1,0 +1,95 @@
+# GraphQL Queries
+# GraphQL Queries
+# mutation time_add($time: timestamptz!) {
+#   insert_test_time_one(object: {time: $time}) {
+#     id
+#     time
+#   }
+# }
+
+# mutation time_add_default {
+#   insert_test_time_one(object: {}) {
+#     id
+#     time
+#   }
+# }
+
+# subscription on_time_added {
+#   test_time(limit: 1, order_by: {id: desc}) {
+#     id
+#     time
+#   }
+# }
+
+query show_movies {
+  movie(limit: 100) {
+    id,
+    title
+    original_language
+    release_date
+    genre_data {
+      name
+    }
+  }
+}
+
+
+query show_movie_by_id($_eq: Int) {
+  movie(where: {id: {_eq: $_eq}}) {
+    id
+    title
+    original_language
+    release_date    
+  }
+}
+
+mutation insert_genre_mutation($id: Int!, $name: String!) {
+  insert_genre(objects: [{
+    id: $id,
+    name: $name
+  }]) {
+    returning {
+      id,
+      name,
+      created_at,
+    }
+  }
+}
+
+mutation delete_genre_mutation($id: Int!) {
+  delete_genre(where: {id: {_eq: $id}}) {
+    affected_rows
+    returning {
+      id
+      name
+    }
+  }
+}
+
+mutation update_genre_mutation($id: Int!, $name: String!) {
+  update_genre(where: {id: {_eq: $id}}, _set: {name: $name}) {
+    returning {
+      id
+      name
+    }
+  }
+}
+
+query search_genre_mutation($word: String!) {
+  genre(where: {name: {_like: $word}}) {
+    id
+    name
+  }
+}
+
+query show_movies_by_genre_mutation($_genre: String!) {
+  movie(where: {genre_data: {name: {_like: $_genre}}}) {
+    id
+    title
+    original_language
+    release_date
+    genre_data {
+      name
+    }
+  }
+}

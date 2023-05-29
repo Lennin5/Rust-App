@@ -1,0 +1,327 @@
+// Bootstrap utilities
+// ============================================================================
+
+@import "../bootstrap/scss/utilities";
+
+// Theme utilities
+// ============================================================================
+
+$shadows: (
+  "inset": $box-shadow-inset
+);
+
+$text-shadows: ();
+
+// Color Shadows
+// ============================================================================
+
+@each $color, $value in $colors {
+  $shadows: map-merge($shadows, ($color: #{$box-shadow-config} #{$value}));
+}
+
+@each $color, $value in $colors {
+  $text-shadows: map-merge($text-shadows, ($color: #{$text-shadow-config} #{$value}));
+}
+
+// Gray Shadows
+// ============================================================================
+
+@each $color, $value in $grays {
+  $shadows: map-merge($shadows, ("gray-#{$color}": #{$box-shadow-config} #{$value}));
+}
+
+@each $color, $value in $grays {
+  $text-shadows: map-merge($text-shadows, ("gray-#{$color}": #{$text-shadow-config} #{$value}));
+}
+
+// Gray Shadows
+// ============================================================================
+
+@each $color, $value in $theme-colors {
+  $shadows: map-merge($shadows, ($color: #{$box-shadow-config} #{$value}));
+}
+
+@each $color, $value in $theme-colors {
+  $text-shadows: map-merge($text-shadows, ($color: #{$text-shadow-config} #{$value}));
+}
+
+
+$utilities: map-merge(
+    $utilities,
+    (
+        "background": (
+            property: background-color,
+            class: bg,
+            values: map-merge($colors, $theme-colors)
+        ),
+        "letter-spacing": (
+            property: letter-spacing,
+            class: ls,
+            values: (
+                0: 0,
+                normal: normal,
+                1: 0.1rem,
+                2: 0.2rem,
+                3: 0.3rem,
+                4: 0.4rem,
+                5: 0.5rem
+            ),
+            responsive: true
+        ),
+        "color": (
+            map-merge(
+                map-get($utilities, "color"),
+                (
+                    values: map-merge(
+                        map-get(map-get($utilities, "color"), "values"),
+                        $colors,
+                    ),
+                    responsive: true
+                )
+            )
+        ),
+        "shadow": (
+            property: box-shadow,
+            class: shadow,
+            values: map-merge(
+                map-get(map-get($utilities, "shadow"), "values"),
+                $shadows
+            )
+        ),
+        "text-shadow": (
+            property: text-shadow,
+            class: text-shadow,
+            values: $text-shadows
+        ),
+        "height": (
+            property: height,
+            class: h,
+            values: (
+                0: 0,
+                5: 5%,
+                10: 10%,
+                15: 15%,
+                20: 20%,
+                25: 25%,
+                30: 30%,
+                35: 35%,
+                40: 40%,
+                45: 45%,
+                50: 50%,
+                55: 55%,
+                60: 60%,
+                65: 65%,
+                70: 70%,
+                75: 75%,
+                80: 80%,
+                85: 85%,
+                90: 90%,
+                95: 95%,
+                100: 100%,
+                200: 200%,
+                300: 300%,
+                400: 400%,
+                500: 500%,
+                auto: auto,
+                1: 1rem,
+                2: 2rem,
+                3: 3rem,
+                4: 4rem,
+                6: 6rem,
+                7: 7rem,
+                8: 8rem,
+                9: 9rem,
+                "10rem": 10rem
+            ),
+            responsive: true
+        ),
+        "width": (
+            property: width,
+            class: w,
+            values: (
+                0: 0,
+                5: 5%,
+                10: 10%,
+                15: 15%,
+                20: 20%,
+                25: 25%,
+                30: 30%,
+                35: 35%,
+                40: 40%,
+                45: 45%,
+                50: 50%,
+                55: 55%,
+                60: 60%,
+                65: 65%,
+                70: 70%,
+                75: 75%,
+                80: 80%,
+                85: 85%,
+                90: 90%,
+                95: 95%,
+                100: 100%,
+                auto: auto,
+                1: 1rem,
+                2: 2rem,
+                3: 3rem,
+                4: 4rem,
+                6: 6rem,
+                7: 7rem,
+                8: 8rem,
+                9: 9rem,
+                "10rem": 10rem
+
+            ),
+            responsive: true
+        ),
+        "border-color": map-merge(
+            map-get($utilities, "border-color"),
+            (
+                values: map-merge(
+                    map-get(map-get($utilities, "border-color"), "values"),
+                    $colors
+                ),
+                responsive: true
+            )
+        ),        
+        "rounded-top-right-radius": (
+            property: border-top-right-radius,
+            class: rounded-top-right-radius,
+            values: (
+                0: 0,
+                10: 10rem,
+                15: 15rem,
+                20: 20rem,
+                25: 25rem,
+                30: 30rem,
+                35: 35rem,
+                40: 40rem,
+                45: 45rem,
+                50: 50rem,
+                55: 55rem,
+                60: 60rem,
+            ),
+            responsive: true
+        ),
+        "rounded-bottom-right-radius": (
+            property: border-bottom-right-radius,
+            class: rounded-bottom-right-radius,
+            values: (
+                0: 0,
+                10: 10rem,
+                15: 15rem,
+                20: 20rem,
+                25: 25rem,
+                30: 30rem,
+                35: 35rem,
+                40: 40rem,
+                45: 45rem,
+                50: 50rem,
+                55: 55rem,
+                60: 60rem,
+            ),
+            responsive: true
+        ),
+        "rounded-bottom-left-radius": (
+            property: border-bottom-left-radius,
+            class: rounded-bottom-left-radius,
+            values: (
+                0: 0,
+                10: 10rem,
+                15: 15rem,
+                20: 20rem,
+                25: 25rem,
+                30: 30rem,
+                35: 35rem,
+                40: 40rem,
+                45: 45rem,
+                50: 50rem,
+                55: 55rem,
+                60: 60rem,
+            ),
+            responsive: true
+        ),
+        "rounded-top-left-radius": (
+            property: border-top-left-radius,
+            class: rounded-top-left-radius,
+            values: (
+                0: 0,
+                10: 10rem,
+                15: 15rem,
+                20: 20rem,
+                25: 25rem,
+                30: 30rem,
+                35: 35rem,
+                40: 40rem,
+                45: 45rem,
+                50: 50rem,
+                55: 55rem,
+                60: 60rem,
+            ),
+            responsive: true
+        ),
+        "line-height": map-merge(map-get($utilities, "line-height"), (responsive: true)),
+        "text-align": map-merge(map-get($utilities, "text-align"), (responsive: true)),
+        "font-size": map-merge(map-get($utilities, "font-size"), (responsive: true)),
+        "align-items": map-merge(map-get($utilities, "align-items"), (responsive: true)),
+        "justify-content": map-merge(map-get($utilities, "justify-content"), (responsive: true)),
+        "position": map-merge(map-get($utilities, "position"), (responsive: true)),
+        "translate-middle": map-merge(map-get($utilities, "translate-middle"), (responsive: true)),
+        "viewport-height": map-merge(map-get($utilities, "viewport-height"), (responsive: true)),
+        "viewport-width": map-merge(map-get($utilities, "viewport-width"), (responsive: true)),
+        "top": map-merge(
+            map-get($utilities, "top"),
+            (
+                values: map-merge(
+                    map-get(map-get($utilities, "top"), "values"),
+                    $position-values
+                ),
+                responsive: true
+            )
+        ),
+        "bottom": map-merge(
+            map-get($utilities, "bottom"),
+            (
+                values: map-merge(
+                        map-get(map-get($utilities, "bottom"), "values"),
+                        $position-values
+                ),
+                responsive: true
+            )
+        ),
+        "start": map-merge(
+            map-get($utilities, "start"),
+            (
+                values: map-merge(
+                        map-get(map-get($utilities, "start"), "values"),
+                        $position-values
+                ),
+                responsive: true
+            )
+        ),
+        "end": map-merge(
+            map-get($utilities, "end"),
+            (
+                values: map-merge(
+                        map-get(map-get($utilities, "end"), "values"),
+                        $position-values
+                ),
+                responsive: true
+            )
+        ),
+        // "font-weight": map-merge(
+        //     map-get($utilities, "font-weight"),
+        //     (
+        //         values: (
+        //             light: 300,
+        //             normal: 500,
+        //             "extra-bold": 800,
+        //             "black": 900,
+        //             "semibold": 600,
+        //             "bolder": bolder,
+        //         ),
+        //         responsive: true
+        //     )
+        // )
+    )
+);

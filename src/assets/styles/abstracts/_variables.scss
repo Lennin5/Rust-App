@@ -1,0 +1,228 @@
+// Theme variables
+// ============================================================================
+
+// Grays
+// ============================================================================
+
+$white: #fff;
+$gray-100: #f8fafc;
+$gray-200: #f4f7fb;
+$gray-300: #eff4f9;
+$gray-400: #ebf1f8;
+$gray-500: #e6eef6;
+$gray-600: #bdc3ca;
+$gray-700: #93989d;
+$gray-800: #6a6d71;
+$gray-900: #404345;
+$black: #000;
+
+$all-grays: $gray-100, $gray-200, $gray-300, $gray-400, $gray-500, $gray-600, $gray-700, $gray-800, $gray-900;
+
+// Colors
+// ============================================================================
+
+$pink: #FD3468;
+$purple: #2D164A;
+$violet: #7c0af8;
+$lila: #D2C4F3;
+$brown: #847282;
+
+$pink-dark: #CA4C63;
+$purple-dark: #25183D;
+$lila-dark: #A192D3;
+$brown-dark: #423941;
+
+$purple-light: #573E76;
+$purple-blue: #8370b2;
+
+$colors: (
+    "pink": $pink,
+    "pink-dark": $pink-dark,
+    "purple": $purple,    
+    "purple-dark": $purple-dark,    
+    "purple-light": $purple-light,
+    "purple-blue": $purple-blue,
+    "gray": $gray-500,
+    "violet": $violet,
+    // lila.
+    "lila": $lila,
+    "lila-black": $lila-dark,
+    "gray-100": $gray-100,
+    "gray-200": $gray-200,
+    "gray-300": $gray-300,
+    "gray-400": $gray-400,
+    "gray-500": $gray-500,
+    "gray-600": $gray-600,
+    "gray-700": $gray-700,
+    "gray-800": $gray-800,
+    "gray-900": $gray-900,
+);
+
+$base-colors: "blue" "purple" "pink" "red" "orange" "yellow" "green" "gray" "lila";
+
+// Theme colors
+// ============================================================================
+
+$primary: $violet;
+$secondary: $purple;
+$light: $gray-500;
+
+// Box Shadows
+// ============================================================================
+$enable-shadows: true;
+$box-shadow-config: 0px 2px 8px 0px;
+$box-shadow-config-2: 0px 3px 6px;
+$box-shadow: #{$box-shadow-config} #787a80;
+$box-shadow-lg: #{$box-shadow-config} $gray-800;
+$text-shadow-config: 2px 2px 6px;
+
+// Typography
+// ============================================================================
+
+$font-family-sans-serif: "Axiforma", sans-serif;
+$font-size-base: 1rem;
+
+// Conditionally increase font size for high pixel density devices
+@if (-webkit-min-device-pixel-ratio: 2) {
+    $font-size-base: 0.875rem
+}
+
+$h1-font-size: $font-size-base * 4;
+$h2-font-size: $font-size-base * 3;
+$h3-font-size: $font-size-base * 2.5;
+$h4-font-size: $font-size-base * 2;
+$h5-font-size: $font-size-base * 1.5;
+$h6-font-size: $font-size-base * 1.25;
+$h7-font-size: $font-size-base;
+$h8-font-size: $font-size-base * .875;
+
+$font-sizes: (
+    1: $h1-font-size,
+    2: $h2-font-size,
+    3: $h3-font-size,
+    4: $h4-font-size,
+    5: $h5-font-size,
+    6: $h6-font-size,
+    7: $h7-font-size,
+    8: $h8-font-size
+);
+
+// Spacings
+// ============================================================================
+
+$spacer: 1rem;
+$spacer-0: 0;
+$spacer-1: calc($spacer / 4);
+$spacer-2: calc($spacer / 2);
+$spacer-3: $spacer * .75;
+$spacer-4: $spacer;
+$spacer-5: $spacer * 1.25;
+$spacer-6: $spacer * 1.5;
+$spacer-7: $spacer * 2;
+$spacer-8: $spacer * 2.25;
+$spacer-9: $spacer * 3;
+$spacer-10: $spacer * 4;
+$spacer-25: 25%;
+$spacer-50: 50%;
+$spacer-75: 75%;
+
+$spacers: (
+    0: $spacer-0,
+    1: $spacer-1, // 4px
+    2: $spacer-2, // 8px
+    3: $spacer-3, // 12px
+    4: $spacer-4, // 16px
+    5: $spacer-5, // 20px
+    6: $spacer-6, // 24px
+    7: $spacer-7, // 32px
+    8: $spacer-8, // 36px
+    9: $spacer-9, // 48px
+    10: $spacer-10, // 64px
+    // percentages
+    25: $spacer-25,
+    50: $spacer-50,
+    75: $spacer-75
+);
+
+
+// Borders
+// ============================================================================
+$border-radius: 10px;
+
+// Buttons
+// ============================================================================
+
+// $btn-border-radius: $border-radius;
+$btn-padding-y: 1rem;
+$btn-padding-x: 2rem;
+$btn-font-weight: 700;
+$btn-border-width: none;
+$btn-hover-bg-shade-amount: 10%;
+$btn-hover-bg-tint-amount: 10%;
+
+// Position
+// ============================================================================
+
+$position-values: (
+    0: 0,
+    5: 5%,
+    10: 10%,
+    15: 15%,
+    20: 20%,
+    25: 25%,
+    30: 30%,
+    35: 35%,
+    40: 40%,
+    45: 45%,
+    50: 50%,
+    55: 55%,
+    60: 60%,
+    65: 65%,
+    70: 70%,
+    75: 75%,
+    80: 80%,
+    85: 85%,
+    90: 90%,
+    95: 95%,
+    100: 100%,
+    200: 200%,
+    300: 300%,
+    1: 1rem,
+    2: 2rem,
+    3: 3rem,
+    4: 4rem,
+    6: 6rem,
+    7: 7rem,
+    8: 8rem,
+    9: 9rem,
+);
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+);
+
+$border-values: (
+    0: 0,
+    10: 10rem,
+    15: 15rem,
+    20: 20rem,
+    25: 25rem,
+    30: 30rem,
+    35: 35rem,
+    40: 40rem,
+    45: 45rem,
+    50: 50rem,
+    55: 55rem,
+    60: 60rem,    
+);
+
+// Bootstrap variables
+// ============================================================================
+/* stylelint-disable-next-line */
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/variables-dark";
